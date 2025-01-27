@@ -20,7 +20,7 @@ public class DataTransfer {
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/myDb", "root", "password");
 			
 			//query
-			String query = "INSERT INTO employees(employee_id, first_name, last_name, age, salary) VALUES (?, ?, ?, ?, ?)";
+			String query = "INSERT INTO employees(id, first_name, last_name, age) VALUES (?, ?, ?, ?)";
 			
 			// Establishing the statement 
 			PreparedStatement prpt = connection.prepareStatement(query);
@@ -41,7 +41,7 @@ public class DataTransfer {
 				prpt.setString(2, ar[1]);
 				prpt.setString(3, ar[2]);
 				prpt.setInt(4, Integer.parseInt(ar[3]));
-				prpt.setInt(5, Integer.parseInt(ar[4]));
+				
 				//Executing the query
 				prpt.executeUpdate();
 				count++;
